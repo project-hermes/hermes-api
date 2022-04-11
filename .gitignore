@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+appsettings.Development.json
+appsettings.json
+/.vs
+/hermes-api/bin
+/hermes-api/Migrations
+/hermes-api/obj
+/hermes-api/Properties/PublishProfiles
