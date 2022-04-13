@@ -38,3 +38,7 @@ appsettings.json
 /hermes-api/Migrations
 /hermes-api/obj
 /hermes-api/Properties/PublishProfiles
+/hermes-api/Properties/ServiceDependencies/project-hermes
+/hermes-api/Properties/serviceDependencies.json
+/hermes-api/Properties/serviceDependencies.project-hermes.json
+/hermes-api/Properties/serviceDependencies.project-hermes.json.user

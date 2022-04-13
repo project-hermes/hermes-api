@@ -4,17 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace hermes_api.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class FeedController : ControllerBase
     {
         private readonly HermesDbContext Context;
-        private readonly IConfiguration Configuration;
 
-        public FeedController(HermesDbContext context, IConfiguration configuration)
+        public FeedController(HermesDbContext context)
         {
             Context = context;
-            Configuration = configuration;
         }
 
         [HttpGet("{Id}")]
@@ -23,7 +21,7 @@ namespace hermes_api.Controllers
             var request = Context.Feed.Find(Id);
             if (request == null)
                 return NotFound();
-            
+
             var dot = new FeedDTOModel
             {
                 Id = request.Id,

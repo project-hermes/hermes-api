@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hermes-api", "hermes-api\hermes-api.csproj", "{770F6943-462F-42EF-A570-CA7CFB8500BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hermes-api", "hermes-api\hermes-api.csproj", "{D542BEE7-7A1E-4783-974E-6AA6B19019DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{770F6943-462F-42EF-A570-CA7CFB8500BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{770F6943-462F-42EF-A570-CA7CFB8500BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{770F6943-462F-42EF-A570-CA7CFB8500BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{770F6943-462F-42EF-A570-CA7CFB8500BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D542BEE7-7A1E-4783-974E-6AA6B19019DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D542BEE7-7A1E-4783-974E-6AA6B19019DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D542BEE7-7A1E-4783-974E-6AA6B19019DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D542BEE7-7A1E-4783-974E-6AA6B19019DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

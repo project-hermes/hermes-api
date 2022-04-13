@@ -9,9 +9,11 @@ namespace hermes_api.DAL
         }
 
         public DbSet<FeedDALModel> Feed { get; set; }
+        public DbSet<LogDALModel> Log { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<FeedDALModel>().ToTable("Feed");
+            modelBuilder.Entity<LogDALModel>().ToTable("Log");
         }
     }
 }
