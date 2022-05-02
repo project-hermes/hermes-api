@@ -4,16 +4,19 @@ namespace hermes_api.DAL
 {
     public class HermesDbContext : DbContext
     {
+        //Add-Migration XXXX
+        //Update-Database
+
         public HermesDbContext(DbContextOptions<HermesDbContext> options) : base(options)
         {
         }
 
-        public DbSet<FeedDALModel> Feed { get; set; }
-        public DbSet<LogDALModel> Log { get; set; }
+        public DbSet<RemoraDALModel> Remora { get; set; }
+        public DbSet<RemoraRecordDALModel> RemoraRecord { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FeedDALModel>().ToTable("Feed");
-            modelBuilder.Entity<LogDALModel>().ToTable("Log");
+            modelBuilder.Entity<RemoraDALModel>().ToTable("Remora");
+            modelBuilder.Entity<RemoraRecordDALModel>().ToTable("RemoraRecord");
         }
     }
 }
