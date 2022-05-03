@@ -27,6 +27,7 @@ namespace hermes_api.Controllers
             {
                 Id = request.RemoraId,
                 CreationDate = request.CreationDate,
+                deviceId = request.deviceId,
                 diveId = request.diveId,
                 endLat = request.endLat,
                 endLng = request.endLng,
