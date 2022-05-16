@@ -13,10 +13,12 @@ namespace hermes_api.DAL
 
         public DbSet<RemoraDALModel> Remora { get; set; }
         public DbSet<RemoraRecordDALModel> RemoraRecord { get; set; }
+        public DbSet<FirmwareDALModel> Firmware { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<RemoraDALModel>().ToTable("Remora");
             modelBuilder.Entity<RemoraRecordDALModel>().ToTable("RemoraRecord");
+            modelBuilder.Entity<FirmwareDALModel>().ToTable("Firmware");
         }
     }
 }
