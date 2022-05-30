@@ -17,6 +17,6 @@ namespace hermes_api.DTO
         public int endTime { get; set; }
         public double endLat { get; set; }
         public double endLng { get; set; }
-        public double[][] records { get; set; }
+        public double[][]? records { get; set; }
     }
 }

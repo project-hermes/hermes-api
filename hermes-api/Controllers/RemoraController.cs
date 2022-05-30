@@ -46,9 +46,10 @@ namespace hermes_api.Controllers
                 var i = 0;
                 foreach (var record in records)
                 {
-                    recordsDTO[i] = new double[2];
+                    recordsDTO[i] = new double[3];
                     recordsDTO[i][0] = record.degrees;
                     recordsDTO[i][1] = record.depth;
+                    recordsDTO[i][2] = (int)record.timestamp;
                     i++;
                 }
                 dot.records = recordsDTO;
@@ -60,35 +61,19 @@ namespace hermes_api.Controllers
         [HttpPost]
         public ActionResult<RemoraDTOModel> Post(RemoraDTOModel dataModel)
         {
-            var records = new List<RemoraRecordDALModel>();
-            if (dataModel.records.Any())
-            {
-                for (int i = 0; i < dataModel.records.Length; i++)
-                {
-                    var record = new RemoraRecordDALModel
-                    {
-                        CreationDate = DateTime.UtcNow,
-                        degrees = dataModel.records[i][0],
-                        depth = dataModel.records[i][1],
-                    };
-                    records.Add(record);
-                }
-            }
-
             var request = new RemoraDALModel
             {
                 CreationDate = DateTime.UtcNow,
                 deviceId = dataModel.deviceId,
                 diveId = dataModel.diveId,
-                endLat = dataModel.endLat,
-                endLng = dataModel.endLng,
-                endTime = dataModel.endTime,
-                freq = dataModel.freq,
                 mode = dataModel.mode,
+                startTime = dataModel.startTime,
                 startLat = dataModel.startLat,
                 startLng = dataModel.startLng,
-                startTime = dataModel.startTime,
-                records = records
+                freq = dataModel.freq,
+                endTime = dataModel.endTime,
+                endLat = dataModel.endLat,
+                endLng = dataModel.endLng,
             };
             Context.Remora.Add(request);
             Context.SaveChanges();
