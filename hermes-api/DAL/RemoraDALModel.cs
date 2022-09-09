@@ -17,6 +17,7 @@ namespace hermes_api.DAL
         public int endTime { get; set; }
         public double endLat { get; set; }
         public double endLng { get; set; }
+        public bool endTransfer { get; set; }
         public virtual ICollection<RemoraRecordDALModel>? records { get; set; }
     }
 }

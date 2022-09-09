@@ -1,11 +1,13 @@
 ﻿using hermes_api.DAL;
 using hermes_api.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace hermes_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class RemoraRecordController : ControllerBase
     {
         private readonly HermesDbContext Context;
@@ -18,7 +20,7 @@ namespace hermes_api.Controllers
         [HttpPost]
         public ActionResult<RemoraDTOModel> Post(RemoraRecordDTOModel dataModel)
         {
-            var remora = Context.Remora.Where(r => r.diveId == dataModel.diveId).FirstOrDefault();
+            var remora = Context.Remora.Where(r => r.RemoraId == dataModel.Id).FirstOrDefault();
             if (remora == null)
                 return NotFound();
 

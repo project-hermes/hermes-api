@@ -1,12 +1,14 @@
 ﻿using Azure.Storage.Blobs;
 using hermes_api.DAL;
 using hermes_api.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace hermes_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class FirmwareController : ControllerBase
     {
         private readonly IConfiguration Config;

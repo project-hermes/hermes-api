@@ -1,5 +1,7 @@
 ﻿using hermes_api.DAL;
 using hermes_api.DTO;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +9,7 @@ namespace hermes_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class RemoraController : ControllerBase
     {
         private readonly HermesDbContext Context;
@@ -37,6 +40,7 @@ namespace hermes_api.Controllers
                 startLat = request.startLat,
                 startLng = request.startLng,
                 startTime = request.startTime,
+                endTransfer = request.endTransfer,
             };
 
             var records = Context.RemoraRecord.Where(r => r.RemoraId == Id).ToList();
@@ -74,8 +78,23 @@ namespace hermes_api.Controllers
                 endTime = dataModel.endTime,
                 endLat = dataModel.endLat,
                 endLng = dataModel.endLng,
+                endTransfer = false,
             };
             Context.Remora.Add(request);
+            Context.SaveChanges();
+
+            return Get(request.RemoraId);
+        }
+
+        [HttpPut("{id:int}")]
+        public ActionResult<RemoraDTOModel> Put(int Id)
+        {
+            var request = Context.Remora.Find(Id);
+            if (request == null)
+                return NotFound();
+
+            request.endTransfer = true;
+            Context.Entry(request).State = EntityState.Modified;
             Context.SaveChanges();
 
             return Get(request.RemoraId);
