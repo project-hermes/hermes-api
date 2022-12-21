@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  hermes-api:
+    image: ${DOCKER_REGISTRY-}hermesapi
+    build:
+      context: .
+      dockerfile: ../hermes-api/Dockerfile
+
+  # Database - Mongo DB
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: dbroot
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    
+
+  # Database Manager
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8099:8081
+    depends_on:
+      - mongo
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: dbroot
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ADMINUSERNAME: dbroot
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+      ME_CONFIG_MONGODB_SERVER: mongo
+    links:
+      - mongo
+    restart: always

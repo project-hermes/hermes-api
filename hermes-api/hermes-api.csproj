@@ -7,6 +7,7 @@
     <RootNamespace>hermes_api</RootNamespace>
     <UserSecretsId>ee3078cc-0668-4110-997a-5fff412de96f</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
