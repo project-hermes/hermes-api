@@ -13,5 +13,6 @@
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
     <None Include="docker-compose.yml" />
+    <None Include="init-mongo-db\mongo-init.js" />
   </ItemGroup>
 </Project>
