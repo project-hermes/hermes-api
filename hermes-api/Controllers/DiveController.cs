@@ -21,7 +21,7 @@ namespace hermes_api.Controllers
         [HttpGet()]
         public ActionResult<List<DiveDTOModel>> Last()
         {
-            var divesDAL = Context.Remora.Take(10).OrderByDescending(r => r.CreationDate).ToList();
+            var divesDAL = Context.Remora.Take(100).OrderByDescending(r => r.CreationDate).ToList();
             if (divesDAL == null)
                 return NotFound();
 
