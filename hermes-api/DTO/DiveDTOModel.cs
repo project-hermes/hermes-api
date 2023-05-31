@@ -11,5 +11,6 @@
         public double degreeOneMeter { get; set; }
         public double degreeMax { get; set; }
         public double deepMax { get; set; }
+        public string locality { get; set; }
     }
 }

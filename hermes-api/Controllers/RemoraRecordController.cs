@@ -10,11 +10,13 @@ namespace hermes_api.Controllers
     [Authorize]
     public class RemoraRecordController : ControllerBase
     {
+        private readonly IConfiguration Config;
         private readonly HermesDbContext Context;
 
-        public RemoraRecordController(HermesDbContext context)
+        public RemoraRecordController(HermesDbContext context, IConfiguration config)
         {
             Context = context;
+            Config = config;
         }
 
         [HttpPost]
@@ -41,7 +43,7 @@ namespace hermes_api.Controllers
                 Context.SaveChanges();
             }
 
-            var remoraController = new RemoraController(Context);
+            var remoraController = new RemoraController(Context, Config);
             return remoraController.Get(remora.RemoraId);
         }
     }
