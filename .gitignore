@@ -42,3 +42,5 @@ appsettings.json
 /hermes-api/Properties/serviceDependencies.json
 /hermes-api/Properties/serviceDependencies.project-hermes.json
 /hermes-api/Properties/serviceDependencies.project-hermes.json.user
+/feed-website/bin/Debug/net6.0
+/feed-website/obj
