@@ -55,8 +55,7 @@ namespace feed_website
                 mode = diveDAL.mode,
                 start = DateConversion.UnixTimeStampToDateTime(diveDAL.startTime),
                 longitude = longitude,
-                latitude = latitude,
-                //locality = GetLocality(longitude, latitude)
+                latitude = latitude
             };
 
             if (Context.RemoraRecord.Where(r => r.RemoraId == diveDAL.RemoraId).Count() > 0)
@@ -82,24 +81,6 @@ namespace feed_website
             Thread.Sleep(3000);
 
             Console.WriteLine("Insert "+ diveDAL.RemoraId + " - IsSuccessStatusCode: " + response.IsSuccessStatusCode);
-        }
-
-        private static string GetLocality(double longitude, double latitude)
-        {
-            var location = new GoogleLocationService(Config.GetConnectionString("GoogleApiKey"));
-            try
-            {
-                var locality = location.GetAddressFromLatLang(latitude, longitude);
-
-                return locality.City + ", " + locality.State + ", " + locality.Country; ;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            return "n.c.";
-
         }
     }
 }

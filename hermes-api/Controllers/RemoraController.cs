@@ -121,8 +121,7 @@ namespace hermes_api.Controllers
                 mode = diveDAL.mode,
                 start = DateConversion.UnixTimeStampToDateTime(diveDAL.startTime),
                 longitude = longitude,
-                latitude = latitude,
-                //locality = GetLocality(longitude, latitude)
+                latitude = latitude
             };
 
             if(Context.RemoraRecord.Where(r => r.RemoraId == diveDAL.RemoraId).Count() > 0)
@@ -145,23 +144,6 @@ namespace hermes_api.Controllers
             var content = new StringContent(diveJson, Encoding.UTF8, "application/json");
             var response = await httpClient.PostAsync(Config.GetSection("PublicWebsite:Url").Value, content);
 
-        }
-
-        private string GetLocality(double longitude, double latitude)
-        {
-            var location = new GoogleLocationService(Config.GetSection("ConnectionStrings:GoogleApiKey").Value);
-            try
-            {
-                var locality = location.GetAddressFromLatLang(latitude, longitude);
-
-                return locality.City + ", " + locality.State + ", " + locality.Country; ;
-            }
-            catch(Exception ex) {
-                Console.WriteLine(ex.Message);
-            }
-
-            return "n.c.";
-            
         }
     }
 }
