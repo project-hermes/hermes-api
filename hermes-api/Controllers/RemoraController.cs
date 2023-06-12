@@ -122,7 +122,7 @@ namespace hermes_api.Controllers
                 start = DateConversion.UnixTimeStampToDateTime(diveDAL.startTime),
                 longitude = longitude,
                 latitude = latitude,
-                locality = GetLocality(longitude, latitude)
+                //locality = GetLocality(longitude, latitude)
             };
 
             if(Context.RemoraRecord.Where(r => r.RemoraId == diveDAL.RemoraId).Count() > 0)

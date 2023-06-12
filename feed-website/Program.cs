@@ -33,7 +33,7 @@ namespace feed_website
 
             Context = scope.ServiceProvider.GetRequiredService<HermesDbContext>();
 
-            var dives = Context.Remora.ToList();
+            var dives = Context.Remora.Where(r => r.RemoraId > 335).ToList();
 
             foreach(var dive in dives)
             {
@@ -56,7 +56,7 @@ namespace feed_website
                 start = DateConversion.UnixTimeStampToDateTime(diveDAL.startTime),
                 longitude = longitude,
                 latitude = latitude,
-                locality = GetLocality(longitude, latitude)
+                //locality = GetLocality(longitude, latitude)
             };
 
             if (Context.RemoraRecord.Where(r => r.RemoraId == diveDAL.RemoraId).Count() > 0)
