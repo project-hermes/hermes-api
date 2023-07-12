@@ -119,7 +119,7 @@ namespace hermes_api.Controllers
                 deviceId = diveDAL.deviceId,
                 diveId = diveDAL.diveId,
                 mode = diveDAL.mode,
-                start = DateConversion.UnixTimeStampToDateTime(diveDAL.startTime),
+                start = DateConversion.UnixTimeStampToDateTime(diveDAL.endTime),
                 longitude = longitude,
                 latitude = latitude
             };
