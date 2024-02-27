@@ -20,7 +20,7 @@ namespace hermes_api.Controllers
             Config = config;
         }
 
-        [HttpGet()]
+        [HttpGet("/api/Sandbox")]
         public ActionResult<FirmwareDTOModel> Sandbox()
         {
             var ID_SANDBOX = 1032;
