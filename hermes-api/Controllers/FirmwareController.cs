@@ -21,6 +21,17 @@ namespace hermes_api.Controllers
         }
 
         [HttpGet()]
+        public ActionResult<FirmwareDTOModel> Sandbox()
+        {
+            var ID_SANDBOX = 1032;
+            var request = Context.Firmware.Find(ID_SANDBOX);
+            if (request == null)
+                return NotFound();
+
+            return dtoMapper(request);
+        }
+
+        [HttpGet()]
         public ActionResult<FirmwareDTOModel> Last()
         {
             var request = Context.Firmware.OrderByDescending(r => r.CreationDate).FirstOrDefault();
